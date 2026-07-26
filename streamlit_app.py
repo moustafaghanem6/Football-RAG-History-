@@ -40,15 +40,9 @@ st.markdown(f"""
         max-width: 1050px !important;
     }}
 
-    /* 3. الشريط الجانبي بتصميم زجاجي شفاف (Glassmorphism) */
-    [data-testid="stSidebar"] {{
-        background: rgba(10, 16, 28, 0.82) !important;
-        backdrop-filter: blur(16px) !important;
-        border-right: 1px solid rgba(0, 255, 135, 0.2) !important;
-    }}
-    [data-testid="stSidebar"] * {{
-        color: #ffffff !important;
-    }}
+    st.sidebar.image("profile.png", width=120)
+st.sidebar.markdown("### Moustafa Ghanem")
+st.sidebar.markdown("Senior AI & RAG Developer")
 
     /* 4. كارت العنوان الرئيسي بلمسات FC 25 النيون */
     .hero-card {{
