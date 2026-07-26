@@ -152,7 +152,7 @@ with st.sidebar:
 st.markdown("""
     <div class="hero-card">
         <div class="hero-title">⚽ Football All history</div>
-        <div class="hero-subtitle">البوابة الذكية الشاملة لتاريخ وأرشيف كرة القدم العالمية</div>
+        <div class="hero-subtitle"> البوابة الذكية الشاملة لتاريخ وأرشيف كرة القدم العالمية حتي 2023</div>
     </div>
 """, unsafe_allow_html=True)
 
