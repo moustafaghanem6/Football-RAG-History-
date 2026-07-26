@@ -1,16 +1,21 @@
 import os
 import requests
+import streamlit as st
 from dotenv import load_dotenv
 
 def generate_rag_answer(query, retrieved_contexts):
-    # إعادة قراءة ملف .env فوراً في كل طلب لضمان جلب المفتاح الصحيح
-    load_dotenv(override=True)
-    
-    api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+    # محاولة جلب المفتاح من إعدادات Streamlit Cloud الآمنة أولاً، ثم ملف .env محلياً
+    api_key = ""
+    try:
+        api_key = st.secrets["OPENROUTER_API_KEY"]
+    except Exception:
+        load_dotenv(override=True)
+        api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+        
     model_name = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini").strip()
 
     if not api_key:
-        return "خطأ: لم يتم العثور على مفتاح OPENROUTER_API_KEY داخل ملف .env"
+        return "خطأ: لم يتم العثور على مفتاح OPENROUTER_API_KEY في إعدادات المنصة أو ملف .env"
 
     context_text = ""
     sources = set()
